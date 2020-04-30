@@ -22,8 +22,18 @@ Public Class About
             Dim evento = New SharpRaven.Data.SentryEvent(ex)
             'tag que vai acompanhar somente este evento'
             evento.Tags.Add("sampleTag", "casa")
+            evento.Tags.Add("user.id", "12")
+            evento.Tags.Add("user.username", "12")
+            evento.Tags.Add("user.email", "12@12.com")
+
+
             'envia o evento
             Dim eventId = GlobalVariables.ravenClient.Capture(evento)
+
+
+            Dim evento2 = New SharpRaven.Data.SentryEvent("Novo evento")
+            GlobalVariables.ravenClient.Capture(evento2)
+
             'Exemplo de enviar feedback'
             Dim feedback = New SharpRaven.Data.SentryUserFeedback()
             feedback.Comments = "Comentario"

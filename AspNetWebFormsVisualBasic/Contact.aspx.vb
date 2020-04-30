@@ -7,8 +7,6 @@
             Throw New Exception("Sample Exception")
             Exit Try
         Catch ex As Exception
-            Dim x
-            GlobalVariables.ravenClient.Capture(New SharpRaven.Data.SentryEvent(ex))
         End Try
 
 
